@@ -9,6 +9,8 @@ source file and page.
 Works with **multiple PDFs at once**, indexed incrementally, with a
 [Streamlit](https://streamlit.io/) chat UI on top.
 
+🔗 **Live app:** [custompdfrag.streamlit.app](https://custompdfrag.streamlit.app/)
+
 ## How it works
 
 Ingestion and querying are two independent phases that meet at one shared
