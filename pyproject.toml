@@ -23,6 +23,7 @@ dependencies = [
     "langchain-text-splitters>=0.3.0",
     "pymupdf>=1.6.0",
     "pypdf>=5.1.0",
+    "pysqlite3-binary>=0.5.4; sys_platform == 'linux'",
     "python-dotenv>=1.0.1",
     "sentence-transformers>=3.3.0",
     "streamlit>=1.62.0",
