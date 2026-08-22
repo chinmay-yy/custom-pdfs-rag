@@ -1,0 +1,30 @@
+HI IM CHINMAY!!
+
+LEARNING GEN AI , TOPIC - RAG
+This is a pdf of rag project
+Notes of rag - 
+Retrieval-Augmented Generation (RAG) is an AI technique that connects Large Language Models (LLMs) to private, real-time, or external databases.Standard LLMs are trained on fixed snapshots of time and cannot access your private documents (PDFs, internal wikis, SQL databases). RAG solves this by retrieving relevant data from your data source first, injecting that data into the prompt, and having the model generate an answer based strictly on that context.Core Mechanics: How RAG WorksIngestion (Preparation Phase): Your private documents are split into small chunks, converted into numerical representations called embeddings, and saved in a Vector Store.Retrieval (Search Phase): When a user asks a question, the user's prompt is converted into an embedding to search the Vector Store for the most semantically relevant document chunks.Generation (Response Phase): The retrieved text chunks are injected alongside the user's question into a prompt (e.g., "Answer using only this context: ..."), which the LLM uses to write the answer.Step-by-Step Architecture1.1. Load & Extract Text:Data Ingestion.Parse raw files (PDFs, Markdown, Webpages, TXT) into raw text strings using specialized parsers like PyPDF, Unstructured, or PDFPlumber.2.2. Split into Chunks:Preprocessing.LLM context windows have limits, and large texts introduce noise. Break down the raw text into chunks (e.g., 500–1000 characters) with a small overlap (e.g., 100 characters) so context isn't lost across chunk boundaries.3.3. Generate Embeddings & Store:Indexing.Pass each chunk through an embedding model (e.g., OpenAI text-embedding-3-small, HuggingFace all-MiniLM-L6-v2) to turn text into mathematical vectors. Store these vector-text pairs in a Vector Database like FAISS, ChromaDB, or Pinecone.4.4. Query & Semantic Search:Retrieval Engine.Convert incoming user queries into vectors using the same embedding model. Perform a cosine similarity or nearest-neighbors search against the Vector DB to extract the top-K (usually 3–5) matching text chunks.5.5. Context Synthesis & Generation:Inference Phase.Combine the extracted document chunks with the user query into a single, structured System Prompt. Send this enriched prompt to the LLM to generate an accurate, grounded answer with source citations.Recommended Folder StructureWhen building a production-ready RAG project, separate data loading, vector storage, and application pipelines clearly:Plaintextrag-application/
+│
+├── data/
+│   ├── raw/                  # Original PDFs, Markdown, CSVs
+│   └── processed/            # Serialized/cleaned chunks (optional)
+│
+├── vector_db/                # Local database index files (FAISS/Chroma storage)
+│
+├── src/
+│   ├── __init__.py
+│   ├── config.py             # Model names, chunk size, environment variables
+│   ├── ingest.py             # Handles document loading, splitting & DB indexing
+│   ├── retriever.py          # Similarity search & vector DB query wrapper
+│   └── pipeline.py           # Core RAG prompt chain logic (LCEL or custom)
+│
+├── tests/
+│   ├── test_ingest.py
+│   └── test_retriever.py
+│
+├── .env                      # API keys (OPENAI_API_KEY, ANTHROPIC_API_KEY)
+├── app.py                    # Entry point (Streamlit UI, FastAPI endpoints, or CLI)
+├── requirements.txt          # Dependencies (langchain, faiss-cpu, pypdf, etc.)
+└── README.md
+
+OK BYE BYE!!!

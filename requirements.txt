@@ -1,0 +1,29 @@
+# LLM
+langchain-google-genai
+langchain-groq
+langchain-mistralai
+langchain_huggingface
+
+
+# Orchestration
+langchain>=0.3.0
+langchain-core
+langchain-community>=0.3.0
+
+langchain-text-splitters>=0.3.0
+
+# Embeddings
+sentence-transformers>=3.3.0
+
+# Vector store
+chromadb>=0.5.20
+faiss-cpu
+
+# Document loading
+pypdf>=5.1.0
+unstructured>=0.16.0
+pymupdf>=1.6.0
+
+# Utilities
+python-dotenv>=1.0.1
+tiktoken>=0.8.0
